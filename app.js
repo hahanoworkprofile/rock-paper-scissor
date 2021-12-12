@@ -1,11 +1,11 @@
+//rps function
 const choices = ["rock", "paper", "scissor"];
-
 let playerScore = 0;
 let computerScore = 0;
 
 const computerPlay = () => choices[Math.floor(Math.random()*choices.length)]
 
-const playRound = (playerSelection, computerSelection) => { 
+const checkRound = (playerSelection, computerSelection) => { 
     if(playerSelection==computerSelection) return "Draw";
     if(playerSelection=="rock" && computerSelection=="scissor" ||
        playerSelection=="scissor" && computerSelection == "paper" ||
@@ -17,19 +17,24 @@ const playRound = (playerSelection, computerSelection) => {
     return "Lose! Your " + playerSelection + " loses " + computerSelection ; 
 }
 
-// const game = (rounds) => {
-//     if (playerScore>=5) { 
-//         console.log("You win!");
-//         return;
-//     }
-//     if(computerScore>=5) { 
-//         console.log("You lose!");
-//         return;
-//     }
+const playRound = (ps, cs) => { 
+    if(playerScore>=5) return "Yay you win!" ;
+    if(computerScore>=5) return "You, you lost!";
+    let res = checkRound(ps,cs); 
+  
+    return res; 
+}
 
-//     let playerChoice;  
-//     playerChoice = prompt("RPS?").toLowerCase();
-//     console.log(playRound(playerChoice, computerPlay()));
-//     console.log("Player: " + playerScore);
-//     console.log("Computer: " + computerScore);
-// }
+//ui function 
+let resultText = document.querySelector('.result.text');
+let resultPlayer = document.querySelector('.result.player');
+let resultComputer = document.querySelector('.result.computer');
+
+const getDataChoice = element => element.getAttribute("data-choice");
+let btns = document.querySelectorAll("[data-choice]"); 
+btns.forEach(btn => btn.addEventListener('click', e => {
+   resultText.textContent = playRound(getDataChoice(btn), computerPlay()); 
+   resultPlayer.textContent = playerScore; 
+   resultComputer.textContent = computerScore; 
+} ) )
+
