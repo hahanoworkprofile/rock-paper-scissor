@@ -1,18 +1,9 @@
-const computerPlay = () => { 
-   rand = Math.floor(Math.random()*4); 
-   if (rand==1) { 
-      return "rock";
-   }
-   else if (rand==2) {
-       return "scissor";
-   }
-   else  {
-       return "paper";
-   }
-}
+const choices = ["rock", "paper", "scissor"];
 
-let playerScore;
-let computerScore;
+const computerPlay = () => choices[Math.floor(Math.random()*choices.length)]
+
+let playerScore = 0;
+let computerScore = 0;
 
 const playRound = (playerSelection, computerSelection) => { 
     if(playerSelection==computerSelection) return "Draw";
@@ -27,8 +18,18 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 const game = (rounds) => {
+    if (playerScore>=5) { 
+        console.log("You win!");
+        return;
+    }
+    if(computerScore>=5) { 
+        console.log("You lose!");
+        return;
+    }
+
     let playerChoice;  
     playerChoice = prompt("RPS?").toLowerCase();
     console.log(playRound(playerChoice, computerPlay()));
-    console.log(`Your score is ${playerScore} and the computer's score is: ${computerScore}`);
+    console.log("Player: " + playerScore);
+    console.log("Computer: " + computerScore);
 }
