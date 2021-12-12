@@ -1,9 +1,9 @@
 const choices = ["rock", "paper", "scissor"];
 
-const computerPlay = () => choices[Math.floor(Math.random()*choices.length)]
-
 let playerScore = 0;
 let computerScore = 0;
+
+const computerPlay = () => choices[Math.floor(Math.random()*choices.length)]
 
 const playRound = (playerSelection, computerSelection) => { 
     if(playerSelection==computerSelection) return "Draw";
@@ -17,19 +17,19 @@ const playRound = (playerSelection, computerSelection) => {
     return "Lose! Your " + playerSelection + " loses " + computerSelection ; 
 }
 
-const game = (rounds) => {
-    if (playerScore>=5) { 
-        console.log("You win!");
-        return;
-    }
-    if(computerScore>=5) { 
-        console.log("You lose!");
-        return;
-    }
+// const game = (rounds) => {
+//     if (playerScore>=5) { 
+//         console.log("You win!");
+//         return;
+//     }
+//     if(computerScore>=5) { 
+//         console.log("You lose!");
+//         return;
+//     }
 
-    let playerChoice;  
-    playerChoice = prompt("RPS?").toLowerCase();
-    console.log(playRound(playerChoice, computerPlay()));
-    console.log("Player: " + playerScore);
-    console.log("Computer: " + computerScore);
-}
+//     let playerChoice;  
+//     playerChoice = prompt("RPS?").toLowerCase();
+//     console.log(playRound(playerChoice, computerPlay()));
+//     console.log("Player: " + playerScore);
+//     console.log("Computer: " + computerScore);
+// }

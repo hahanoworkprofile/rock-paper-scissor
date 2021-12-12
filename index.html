@@ -3,8 +3,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./app.js"></script>
+    <link rel="stylesheet" href="styles.css" />
     <title>Rock Paper Scissor</title>
   </head>
-  <body></body>
+  <body>
+    <div class="col-container">
+      <div class="results container">
+        <p class="result player">Player: NULL</p>
+        <p class="result computer">Computer: NULL</p>
+      </div>
+      <p class="result text">NULL</p>
+      <div class="container panel">
+        <button data-choice="rock" class="choice rock">Rock!</button>
+        <button data-choice="paper" class="choice paper">Paper!</button>
+        <button data-choice="scissor" class="choice scissor">Scissor!</button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
